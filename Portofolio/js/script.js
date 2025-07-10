@@ -2,8 +2,8 @@
 AOS.init({
   duration: 800,
   easing: 'ease-in-out',
-  once: true, // Animations will only happen once
-  mirror: false // Elements won't animate again when scrolling back up
+  once: true, 
+  mirror: false 
 });
 
 // Theme Toggle Functionality
@@ -25,12 +25,6 @@ function toggleTheme() {
     icon.classList.toggle("fa-sun", isDark);
   });
 
-  // Update theme text in mobile menu
-  const themeText = document.querySelector(".theme-text");
-  if (themeText) {
-    themeText.textContent = isDark ? "Dark Mode" : "Light Mode";
-  }
-
   // Save to localStorage
   localStorage.setItem("theme", isDark ? "light" : "dark");
 }
@@ -45,8 +39,6 @@ function initTheme() {
     document.querySelectorAll(".theme-toggle i").forEach((icon) => {
       icon.classList.replace("fa-moon", "fa-sun");
     });
-    const themeText = document.querySelector(".theme-text");
-    if (themeText) themeText.textContent = "Light Mode";
   }
 }
 
@@ -130,7 +122,7 @@ function initSmoothScroll() {
       const target = document.querySelector(this.getAttribute("href"));
       if (target) {
         window.scrollTo({
-          top: target.offsetTop - 80, // Adjusted for fixed navbar
+          top: target.offsetTop - 80, 
           behavior: "smooth",
         });
       }
@@ -141,24 +133,33 @@ function initSmoothScroll() {
 // Navbar Scroll Effect
 function initNavbarScroll() {
   const navbar = document.querySelector('.navbar');
-  let lastScroll = 0;
-  
+  let lastScroll = window.scrollY;
+
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+    const currentScroll = window.scrollY;
     
     if (currentScroll <= 0) {
+      navbar.classList.remove('scroll-down');
       navbar.classList.remove('scroll-up');
       return;
     }
-    
-    if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+
+    if (currentScroll > lastScroll) {
+      // Scroll ke bawah
       navbar.classList.remove('scroll-up');
       navbar.classList.add('scroll-down');
-    } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+    } else {
+      // Scroll ke atas
       navbar.classList.remove('scroll-down');
       navbar.classList.add('scroll-up');
     }
-    
+
+    const isAtBottom = window.innerHeight + currentScroll >= document.body.offsetHeight - 50;
+    if (isAtBottom) {
+      navbar.classList.remove('scroll-down');
+      navbar.classList.add('scroll-up');
+    }
+
     lastScroll = currentScroll;
   });
 }
