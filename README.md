@@ -1,5 +1,27 @@
-# Nicholas Jeremy - Personal Portfolio Website
+# Nicholas Jeremy Website Portfolio
 
-This is a fully custom-built personal portfolio website developed using React.js and Tailwind CSS, without any templates or page builders. It features a minimalist black-and-white design, smooth animations, a dark/light mode toggle, and a fully responsive layout across all devices.
+Welcome to my personal portfolio! This site showcases my web development projects, skills, and experience.
 
-The website includes sections such as landing, skills (with horizontal scroll), projects (with GitHub/demo links), and contact (with social links). Deployed on Vercel, the live site can be accessed here: **[nicholas-jeremy.vercel.app](https://nicholas-jeremy.vercel.app)**
+---
+
+## 🚀 Live Demo
+
+Check out the live site here:  
+https://nicholas-jeremy.vercel.app/
+
+---
+
+## 🖼️ Screenshot
+
+![Portfolio Landing Page](screenshots/Screenshot.png)
+
+*Minimalist landing page design featuring a dark/light mode toggle and smooth animations.*
+
+---
+
+## 🔧 Installation & Usage
+
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/Senicccc/NicholasJ-Portofolio.git
+   cd NicholasJ-Portofolio
